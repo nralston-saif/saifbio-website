@@ -60,6 +60,19 @@ before launch.
 `/` landing · `/about` · `/team` · `/donate` · header "Action Plan" → external
 bioactionplan.org. `sitemap.ts` lists the four internal routes.
 
+## Donate form → internal backend
+
+`/donate` has a "Start your gift" form (`DonationInquiryForm`, client) that POSTs
+to the same-origin route handler `src/app/api/donation-inquiry/route.ts`. That
+handler forwards the submission **server-to-server** to the SAIFbio internal ops
+backend (the separate `saif-bio` project) at its public ingestion endpoint
+`POST /api/public/donation-inquiry`, authenticated with a shared secret header.
+The secret stays server-side (never shipped to the browser) and there's no CORS.
+Submissions show up for partners on the backend's `/inquiries` page; this site
+stores nothing. Configure `BIO_INQUIRY_INGEST_URL` +
+`DONATION_INQUIRY_INGEST_SECRET` (see `.env.example`); if unset, the form shows a
+friendly "email us" fallback.
+
 ## Commands
 
 ```bash

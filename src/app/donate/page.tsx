@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
+import { DonationInquiryForm } from "@/components/DonationInquiryForm";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -50,6 +51,22 @@ export default function DonatePage() {
         title="Support our work"
         intro="Every contribution helps SAIFbio close the gap between what threat actors can do and what our defenses can stop. Here's how to give."
       />
+
+      {/* Reach out form */}
+      <section className="py-16 sm:py-20">
+        <div className="container max-w-3xl">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+            Start your gift
+          </h2>
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            Tell us a little about how you&rsquo;d like to give and we&rsquo;ll
+            reach out to walk you through the details — no commitment required.
+          </p>
+          <div className="mt-8">
+            <DonationInquiryForm />
+          </div>
+        </div>
+      </section>
 
       {/* Ways to give */}
       <section className="py-16 sm:py-20">
