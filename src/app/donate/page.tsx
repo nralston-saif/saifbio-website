@@ -50,10 +50,11 @@ export default function DonatePage() {
       <PageHeader
         title="Support our work"
         intro="Every contribution helps SAIFbio close the gap between what threat actors can do and what our defenses can stop. Here's how to give."
+        className="py-10 sm:py-12"
       />
 
       {/* Ways to give (primary) + optional contact form */}
-      <section className="py-16 sm:py-20">
+      <section className="py-10 sm:py-12">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
             {/* Ways to give — the main, self-serve path */}
@@ -64,12 +65,12 @@ export default function DonatePage() {
               <p className="mt-3 text-muted-foreground">
                 Give directly using whichever option works best for you.
               </p>
-              <div className="mt-8 space-y-6">
+              <div className="mt-6 space-y-3">
                 {waysToGive.map((way) => (
-                  <Card key={way.title}>
+                  <Card key={way.title} className="gap-2 py-4">
                     <CardHeader>
-                      <CardTitle className="text-lg">{way.title}</CardTitle>
-                      <CardDescription className="mt-2 text-[0.95rem] leading-relaxed">
+                      <CardTitle className="text-base">{way.title}</CardTitle>
+                      <CardDescription className="text-sm leading-relaxed">
                         {way.body}
                       </CardDescription>
                     </CardHeader>
@@ -84,12 +85,10 @@ export default function DonatePage() {
                 Talk to us about a donation
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Optional. You&rsquo;re welcome to give directly using any of the
-                options on the left. If you&rsquo;d rather talk it through, or
-                have questions first, leave your details and we&rsquo;ll reach
-                out.
+                Optional — use any option on the left, or leave your details and
+                we&rsquo;ll reach out.
               </p>
-              <div className="mt-8">
+              <div className="mt-6">
                 <DonationInquiryForm />
               </div>
             </div>
