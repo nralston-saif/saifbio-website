@@ -14,14 +14,6 @@ const inputClass =
 
 const labelClass = "mb-1.5 block text-sm font-medium text-foreground";
 
-const GIFT_METHODS = [
-  { value: "check", label: "Check" },
-  { value: "wire_ach", label: "Wire or ACH transfer" },
-  { value: "daf", label: "Donor-advised fund (DAF)" },
-  { value: "stock_crypto", label: "Stock or cryptocurrency" },
-  { value: "other", label: "Other / not sure yet" },
-];
-
 type Status = "idle" | "submitting" | "success" | "error";
 
 const EMPTY = {
@@ -29,8 +21,6 @@ const EMPTY = {
   email: "",
   phone: "",
   organization: "",
-  gift_method: "",
-  amount: "",
   message: "",
 };
 
@@ -106,11 +96,10 @@ export function DonationInquiryForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-lg">Tell us about your gift</CardTitle>
+        <CardTitle className="text-lg">Send us a note</CardTitle>
         <CardDescription className="mt-2 text-[0.95rem] leading-relaxed">
-          Share a few details and the SAIFbio team will reach out to help you
-          complete your contribution. Required fields are marked with an
-          asterisk.
+          Leave your details and the SAIFbio team will follow up by email.
+          Required fields are marked with an asterisk.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -174,45 +163,6 @@ export function DonationInquiryForm() {
                 autoComplete="organization"
                 value={values.organization}
                 onChange={update("organization")}
-                className={inputClass}
-                disabled={status === "submitting"}
-              />
-            </div>
-            <div>
-              <label htmlFor="gift_method" className={labelClass}>
-                How would you like to give? *
-              </label>
-              <select
-                id="gift_method"
-                name="gift_method"
-                required
-                value={values.gift_method}
-                onChange={update("gift_method")}
-                className={inputClass}
-                disabled={status === "submitting"}
-              >
-                <option value="" disabled>
-                  Select an option…
-                </option>
-                {GIFT_METHODS.map((m) => (
-                  <option key={m.value} value={m.value}>
-                    {m.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="amount" className={labelClass}>
-                Approximate amount (USD)
-              </label>
-              <input
-                id="amount"
-                name="amount"
-                type="text"
-                inputMode="decimal"
-                placeholder="e.g. 5,000 or a range"
-                value={values.amount}
-                onChange={update("amount")}
                 className={inputClass}
                 disabled={status === "submitting"}
               />
