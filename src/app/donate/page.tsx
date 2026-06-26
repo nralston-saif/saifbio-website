@@ -50,7 +50,7 @@ export default function DonatePage() {
       <PageHeader
         title="Support our work"
         intro="Every contribution helps SAIFbio close the gap between what threat actors can do and what our defenses can stop. Here's how to give."
-        className="py-10 sm:py-12"
+        className="border-b-0 py-10 sm:py-12"
       />
 
       {/* Ways to give (primary) + optional contact form */}
