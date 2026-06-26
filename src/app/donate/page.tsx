@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/PageHeader";
 import {
   Card,
   CardHeader,
@@ -47,12 +46,6 @@ const waysToGive = [
 export default function DonatePage() {
   return (
     <div>
-      <PageHeader
-        title="Support our work"
-        intro="Every contribution helps SAIFbio close the gap between what threat actors can do and what our defenses can stop. Here's how to give."
-        className="border-b-0 py-10 sm:py-12"
-      />
-
       {/* Ways to give (primary) + optional contact form */}
       <section className="py-10 sm:py-12">
         <div className="container">
