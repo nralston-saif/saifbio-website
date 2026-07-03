@@ -6,8 +6,6 @@ import { NextResponse, type NextRequest } from "next/server";
 // the secret never ships to the browser and there's no cross-origin/CORS dance.
 export const dynamic = "force-dynamic";
 
-const GIFT_METHODS = ["check", "wire_ach", "daf", "stock_crypto", "other"];
-
 function str(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -32,6 +30,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
+  // Honeypot: the "website" field is visually hidden on the form, so a value
+  // here means a bot. Pretend success and drop the submission.
+  if (str(body.website)) {
+    return NextResponse.json({ ok: true });
+  }
+
   const name = str(body.name);
   const email = str(body.email);
   if (!name || !email) {
@@ -47,14 +51,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  const rawMethod = str(body.gift_method);
   const payload = {
     name,
     email,
     phone: str(body.phone),
     organization: str(body.organization),
-    gift_method: GIFT_METHODS.includes(rawMethod) ? rawMethod : "other",
-    amount: str(body.amount),
     message: str(body.message),
   };
 

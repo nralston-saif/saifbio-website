@@ -43,17 +43,16 @@ EIN/501c3 line) · `Wordmark` (Montserrat) · `Pill` (hover popover) ·
 
 - `src/lib/site.ts` — **all editable org config**: name, EIN, tax status,
   mailing address, contact emails, external links, and the three pillars.
-  Placeholders (EIN `XX-XXXXXXX`, mailing address) must be filled before launch.
 - `src/lib/team.ts` — team members (bios + photo URLs from the SAIF CDN).
 - Page copy is inline in each `src/app/*/page.tsx`.
 
 ## Tax status toggle
 
 `site.taxStatus` is `"approved" | "pending"`. It switches the 501(c)(3) language
-on `/donate`, `/about`, and the footer between "recognized 501(c)(3)" (shows EIN,
-tax-deductible) and "application pending". The `saif-bio` gift-acknowledgment
-letter template currently uses **pending** language — verify the real IRS status
-before launch.
+on `/donate` (copy + tax card), `/about`, and the footer between "recognized
+501(c)(3)" (shows EIN, tax-deductible) and "application pending". IRS status is
+confirmed **approved** (2026-07); the `saif-bio` acknowledgment-letter template
+uses the matching approved language.
 
 ## Routes
 

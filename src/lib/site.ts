@@ -1,15 +1,9 @@
 /**
  * Central site configuration for SAIFbio.
  *
- * ─────────────────────────────────────────────────────────────────────────
- * TODO — fill in before launch. These are placeholders:
- *   - ein            : the IRS Employer Identification Number
- *   - mailingAddress : the legal mailing address for check donations
- *   - giveEmail / contactEmail : confirm the addresses you want public
- *   - taxStatus      : currently "approved" (states SAIFbio is a recognized
- *                      501(c)(3)). If the IRS application is still pending,
- *                      switch this to "pending" and the donation copy updates.
- * ─────────────────────────────────────────────────────────────────────────
+ * taxStatus "approved" states SAIFbio is a recognized 501(c)(3) and shows the
+ * EIN; "pending" switches the donation/about/footer copy to application-
+ * pending language. IRS approval confirmed 2026-07.
  */
 
 export const site = {
@@ -21,7 +15,7 @@ export const site = {
   description:
     "SAIFbio is a nonprofit working to prevent, detect, and defend against engineered pandemics — mobilizing philanthropy, science, and policy before the next biological catastrophe.",
 
-  // Contact — TODO: confirm public addresses
+  // Public contact addresses (footer + donate-form fallback)
   contactEmail: "info@saif.vc",
   giveEmail: "give@saif.vc",
 

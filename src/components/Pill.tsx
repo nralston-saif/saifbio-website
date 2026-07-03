@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 
 export function Pill({
   label,
@@ -13,6 +13,7 @@ export function Pill({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const pillRef = useRef<HTMLDivElement>(null);
+  const popoverId = useId();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -32,7 +33,13 @@ export function Pill({
         onClick={() => setIsOpen(!isOpen)}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
+        onFocus={() => setIsOpen(true)}
+        onBlur={() => setIsOpen(false)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") setIsOpen(false);
+        }}
         aria-expanded={isOpen}
+        aria-controls={isOpen ? popoverId : undefined}
       >
         {dotColor && (
           <span
@@ -44,7 +51,11 @@ export function Pill({
         {label}
       </button>
       {isOpen && (
-        <div className="absolute left-1/2 top-full z-50 mt-2 w-[calc(100vw-2rem)] max-w-xs -translate-x-1/2 rounded-lg border bg-card p-3 text-sm text-muted-foreground shadow-lg sm:w-72">
+        <div
+          id={popoverId}
+          role="tooltip"
+          className="absolute left-1/2 top-full z-50 mt-2 w-[calc(100vw-2rem)] max-w-xs -translate-x-1/2 rounded-lg border bg-card p-3 text-sm text-muted-foreground shadow-lg sm:w-72"
+        >
           <div className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t bg-card" />
           <p className="relative">{description}</p>
         </div>

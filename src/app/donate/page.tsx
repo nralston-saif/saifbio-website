@@ -29,7 +29,19 @@ const waysToGive = [
   },
   {
     title: "Wire or ACH",
-    body: "For wire or ACH transfers, email us and we'll send banking instructions and confirm receipt for your records.",
+    body: (
+      <>
+        For wire or ACH transfers,{" "}
+        <a
+          href="#donation-inquiry"
+          className="font-medium text-foreground underline underline-offset-4"
+        >
+          send us a note
+        </a>{" "}
+        and we&rsquo;ll reply with banking instructions and confirm receipt for
+        your records.
+      </>
+    ),
   },
   {
     title: "Donor-advised fund",
@@ -39,7 +51,19 @@ const waysToGive = [
   },
   {
     title: "Stock or crypto",
-    body: "Gifts of appreciated securities or cryptocurrency can be especially tax-efficient. Email us to arrange a transfer and valuation.",
+    body: (
+      <>
+        Gifts of appreciated securities or cryptocurrency can be especially
+        tax-efficient.{" "}
+        <a
+          href="#donation-inquiry"
+          className="font-medium text-foreground underline underline-offset-4"
+        >
+          Send us a note
+        </a>{" "}
+        to arrange a transfer and valuation.
+      </>
+    ),
   },
 ];
 
@@ -73,7 +97,7 @@ export default function DonatePage() {
             </div>
 
             {/* Optional — talk to us about a donation */}
-            <div>
+            <div id="donation-inquiry" className="scroll-mt-24">
               <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
                 Talk to us about a donation
               </h2>
@@ -125,13 +149,19 @@ export default function DonatePage() {
                   <span className="text-muted-foreground">Legal name</span>
                   <span className="text-right font-medium">{site.legalName}</span>
                 </div>
-                <div className="flex justify-between gap-4">
-                  <span className="text-muted-foreground">EIN</span>
-                  <span className="text-right font-medium">{site.ein}</span>
-                </div>
+                {site.taxStatus === "approved" && (
+                  <div className="flex justify-between gap-4">
+                    <span className="text-muted-foreground">EIN</span>
+                    <span className="text-right font-medium">{site.ein}</span>
+                  </div>
+                )}
                 <div className="flex justify-between gap-4">
                   <span className="text-muted-foreground">Status</span>
-                  <span className="text-right font-medium">501(c)(3)</span>
+                  <span className="text-right font-medium">
+                    {site.taxStatus === "approved"
+                      ? "501(c)(3)"
+                      : "501(c)(3) pending"}
+                  </span>
                 </div>
               </CardContent>
             </Card>
