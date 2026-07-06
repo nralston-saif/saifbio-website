@@ -10,7 +10,14 @@ export default function Home() {
       <section className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4 py-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Preventing the next pandemic
+            <a
+              href={site.actionPlanUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Advancing the bio action plan
+            </a>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
             SAIFbio is a nonprofit mobilizing philanthropy, science, and policy
@@ -30,15 +37,7 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <a
-              href={site.actionPlanUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Read the Action Plan
-            </a>
-            <Link href="/donate" className="btn btn-outline">
+            <Link href="/donate" className="btn btn-primary">
               Support our work
             </Link>
           </div>

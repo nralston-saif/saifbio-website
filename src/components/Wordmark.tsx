@@ -9,7 +9,7 @@ export function Wordmark({ className }: { className?: string }) {
       )}
     >
       S<span className="font-bold">AI</span>F
-      <span className="font-medium text-muted-foreground">bio</span>
+      <span className="font-medium text-prevent">bio</span>
     </span>
   );
 }

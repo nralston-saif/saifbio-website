@@ -66,7 +66,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-foreground"
                 >
-                  SAIF Ventures ↗
+                  Safe AI Fund ↗
                 </a>
               </li>
             </ul>
