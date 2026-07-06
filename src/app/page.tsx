@@ -10,13 +10,14 @@ export default function Home() {
       <section className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4 py-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+            Advancing the{" "}
             <a
               href={site.actionPlanUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              Advancing the bio action plan
+              Bio Action Plan
             </a>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
