@@ -10,7 +10,7 @@ export function Footer() {
       <div className="container py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Wordmark className="text-2xl" />
+            <Wordmark className="text-3xl" />
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
               {site.legalName} is a nonprofit working to prevent, detect, and
               defend against catastrophic biological threats.
@@ -52,12 +52,9 @@ export function Footer() {
             <h3 className="mb-4 font-semibold">Get in Touch</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a
-                  href={`mailto:${site.contactEmail}`}
-                  className="hover:text-foreground"
-                >
+                <Link href="/donate" className="hover:text-foreground">
                   Contact us
-                </a>
+                </Link>
               </li>
               <li>
                 <a

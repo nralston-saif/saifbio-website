@@ -11,6 +11,11 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Team", href: "/team" },
   { name: "Action Plan", href: site.actionPlanUrl, external: true },
+  {
+    name: "Ecosystem",
+    href: "https://bioactionplan.org/ecosystem?from=saifbio",
+    external: true,
+  },
 ];
 
 export function Header() {
@@ -25,7 +30,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" aria-label="SAIFbio home" className="flex items-center">
-          <Wordmark className="text-2xl" />
+          <Wordmark className="text-3xl" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

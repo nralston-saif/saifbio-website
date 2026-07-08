@@ -8,7 +8,6 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { site } from "@/lib/site";
 
 const inputClass =
   "w-full rounded-md border bg-card px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 disabled:opacity-60";
@@ -59,7 +58,7 @@ export function DonationInquiryForm() {
 
       if (!res.ok) {
         setError(
-          data.error ?? "Something went wrong. Please try again or email us."
+          data.error ?? "Something went wrong. Please try again."
         );
         setStatus("error");
         return;
@@ -68,7 +67,7 @@ export function DonationInquiryForm() {
       setStatus("success");
       setValues({ ...EMPTY });
     } catch {
-      setError("We couldn't reach the server. Please try again or email us.");
+      setError("We couldn't reach the server. Please try again.");
       setStatus("error");
     }
   };
@@ -80,15 +79,7 @@ export function DonationInquiryForm() {
           <CardTitle className="text-lg">Thank you — we&rsquo;ll be in touch</CardTitle>
           <CardDescription className="mt-2 text-[0.95rem] leading-relaxed">
             Your message has reached the SAIFbio team. We&rsquo;ll follow up by
-            email shortly to help arrange your gift. If it&rsquo;s
-            time-sensitive, you can also reach us directly at{" "}
-            <a
-              href={`mailto:${site.contactEmail}`}
-              className="font-medium text-foreground underline underline-offset-4"
-            >
-              {site.contactEmail}
-            </a>
-            .
+            email shortly to help arrange your gift.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -213,14 +204,7 @@ export function DonationInquiryForm() {
               role="alert"
               className="rounded-md bg-destructive/10 px-3 py-2 text-sm text-destructive"
             >
-              {error} You can reach us at{" "}
-              <a
-                href={`mailto:${site.contactEmail}`}
-                className="font-medium underline underline-offset-4"
-              >
-                {site.contactEmail}
-              </a>
-              .
+              {error}
             </p>
           )}
 
