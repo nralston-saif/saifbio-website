@@ -15,7 +15,7 @@ export default function Home() {
               href={site.actionPlanUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="text-[#3d5a3a] underline decoration-[#3d5a3a]/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-[#3d5a3a]/70"
             >
               Bio Action Plan
             </a>{" "}
