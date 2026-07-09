@@ -10,7 +10,7 @@ export default function Home() {
       <section className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4 py-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Advancing the{" "}
+            Transforming the{" "}
             <a
               href={site.actionPlanUrl}
               target="_blank"
@@ -18,7 +18,8 @@ export default function Home() {
               className="hover:underline"
             >
               Bio Action Plan
-            </a>
+            </a>{" "}
+            into Reality
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
             SAIFbio is a nonprofit mobilizing philanthropy, science, and policy
@@ -61,6 +62,24 @@ export default function Home() {
             year, while our surveillance, stockpiles, and safeguards remain
             largely where they were after COVID-19. We have the defensive
             technologies — what we don&rsquo;t have is time.
+          </p>
+        </div>
+      </section>
+
+      {/* Clearinghouse */}
+      <section className="border-t py-20">
+        <div className="container max-w-3xl text-center">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+            A clearinghouse for biosecurity
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            The biosecurity field is fragmented — funders can&rsquo;t always
+            see where money is most needed, researchers and builders struggle
+            to find backers, and promising work stalls in the gaps between
+            institutions. SAIFbio serves as the field&rsquo;s clearinghouse: a
+            central point where philanthropists, scientists, and policymakers
+            connect, so capital flows to the highest-impact gaps and no
+            critical effort falls through the cracks.
           </p>
         </div>
       </section>
