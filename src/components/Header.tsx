@@ -7,7 +7,14 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 import { Wordmark } from "@/components/Wordmark";
 
-const navigation = [
+type NavItem = {
+  name: string;
+  href: string;
+  external?: boolean;
+  sameTab?: boolean;
+};
+
+const navigation: NavItem[] = [
   { name: "About", href: "/about" },
   { name: "Team", href: "/team" },
   { name: "Action Plan", href: site.actionPlanUrl, external: true },
@@ -15,6 +22,7 @@ const navigation = [
     name: "Ecosystem",
     href: "https://bioactionplan.org/ecosystem?from=saifbio",
     external: true,
+    sameTab: true,
   },
 ];
 
@@ -39,8 +47,8 @@ export function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={item.sameTab ? undefined : "_blank"}
+                rel={item.sameTab ? undefined : "noopener noreferrer"}
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.name}
@@ -95,8 +103,8 @@ export function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={item.sameTab ? undefined : "_blank"}
+                  rel={item.sameTab ? undefined : "noopener noreferrer"}
                   className="py-1 text-base font-medium text-muted-foreground"
                 >
                   {item.name}
